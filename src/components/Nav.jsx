@@ -4,7 +4,7 @@ export default function Nav() {
   const [navMenu, setnavMenu] = useState(false);
   return (
     <div className="py-8 px-7 lg:px-28">
-      <div className="flex justify-between md:justify-start md:gap-8 items-center">
+      <div className="flex justify-between md:justify-start md:gap-20 items-center">
         <h1 className="font-bold lg:text-3xl text-2xl">Shortly</h1>
         <div className="md:hidden">
           <button
@@ -43,7 +43,7 @@ export default function Nav() {
             <li>
               <a
                 href="#"
-                className="text-white px-3 py-2 rounded-3xl  bg-[#2acfcf]"
+                className="text-white px-3 py-2 rounded-3xl  bg-[#2acfcf] font-semibold"
               >
                 Sign Up
               </a>
