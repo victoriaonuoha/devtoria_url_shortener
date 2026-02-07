@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Nav() {
   const [navMenu, setnavMenu] = useState(false);
   return (
-    <div>
+    <div className="py-8 px-7 lg:px-28">
       <div className="flex justify-between md:justify-start md:gap-8 items-center">
         <h1 className="font-bold lg:text-3xl text-2xl">Shortly</h1>
         <div className="md:hidden">
@@ -52,7 +52,7 @@ export default function Nav() {
         </div>
       </div>
       {navMenu && (
-        <ul className=" z-10 bg-[#3b3054] text-white px-8 py-8 space-y-5 text-center rounded-2xl mt-3 font-semibold">
+        <ul className=" z-20 bg-[#3b3054] text-white px-8 py-8 space-y-5 text-center rounded-2xl mt-3 font-semibold">
           <li>
             <a href="#" className="font-semibold text-xl">
               Features
