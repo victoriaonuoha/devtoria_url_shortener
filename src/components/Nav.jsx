@@ -52,7 +52,7 @@ export default function Nav() {
         </div>
       </div>
       {navMenu && (
-        <ul className="bg-[#3b3054] text-white px-8 py-8 space-y-5 text-center rounded-2xl mt-3 font-semibold">
+        <ul className=" z-10 bg-[#3b3054] text-white px-8 py-8 space-y-5 text-center rounded-2xl mt-3 font-semibold">
           <li>
             <a href="#" className="font-semibold text-xl">
               Features
