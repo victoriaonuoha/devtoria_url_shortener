@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 
 function App() {
   return (
-   <div className="py-10 px-6 lg:px-28">
+   <div className="py-10 px-7 lg:px-28">
       <Nav />
    </div>
   );

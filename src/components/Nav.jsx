@@ -5,13 +5,13 @@ export default function Nav() {
   return (
     <div>
       <div className="flex justify-between md:justify-start md:gap-8 items-center">
-        <h1 className="font-bold lg:text-3xl">Shortly</h1>
+        <h1 className="font-bold lg:text-3xl text-2xl">Shortly</h1>
         <div className="md:hidden">
           <button
             type="button"
             onClick={() => setnavMenu(!navMenu)}
             aria-label="menu"
-            className="lg:text-3xl text-gray-600"
+            className="lg:text-3xl text-2xl text-gray-600"
           >
             &#9776;
           </button>
@@ -43,7 +43,7 @@ export default function Nav() {
             <li>
               <a
                 href="#"
-                className="text-white px-3 py-2 rounded-3xl  bg-blue-300"
+                className="text-white px-3 py-2 rounded-3xl  bg-[#2acfcf]"
               >
                 Sign Up
               </a>
@@ -52,7 +52,34 @@ export default function Nav() {
         </div>
       </div>
       {navMenu && (
-        <div>hello</div>
+        <ul className="bg-[#3b3054] text-white px-8 py-8 space-y-5 text-center rounded-2xl mt-3 font-semibold">
+          <li>
+            <a href="#" className="font-semibold text-xl">
+              Features
+            </a>
+          </li>
+          <li>
+            <a href="#" className="font-semibold text-xl">
+              Pricing
+            </a>
+          </li>
+          <li>
+            <a href="#" className="font-semibold text-xl">
+              Resources
+            </a>
+          </li>
+          <hr />
+          <li>
+            <a href="#" className="font-semibold text-xl">
+              Login
+            </a>
+          </li>
+          <li className="w-full bg-[#2acfcf] py-3 rounded-4xl">
+            <a href="#" className="font-semibold text-xl bg-[#2acfcf] ">
+              Sign Up
+            </a>
+          </li>
+        </ul>
       )}
     </div>
   );
