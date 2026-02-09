@@ -41,3 +41,18 @@
 .read-the-docs {
   color: #888;
 } */
+.img-form {
+  background-image: url("/images/bg-shorten-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+
+  background-position: right;
+  background-color: #3b3054;
+}
+@media (min-width: 768px) {
+  .img-form {
+    background-image: url("/images/bg-shorten-desktop.svg");
+    background-size: 100%;
+    background-position: center;
+  }
+}

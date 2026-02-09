@@ -1,6 +1,6 @@
 export default function HomePage() {
   return (
-    <div className="mt-1 overflow-hidden  md:flex-row-reverse md:items-center flex-col flex">
+    <div className="mt-1 pb-[6rem] md:pb-[4rem] overflow-hidden  md:flex-row-reverse md:items-center flex-col flex">
       <div className="pl-6 w-[120%] md:w-[80%]">
         <img src="/images/illustration-working.svg" alt="" className="overflow-x-hidden" />
       </div>
