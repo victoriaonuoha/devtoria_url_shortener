@@ -4,7 +4,7 @@ export default function UrlPage() {
   const [longUrl, setLongUrl] = useState("");
 
   return (
-    <div className="px-7 lg:px-28 bg-[#edeaea] relative ">
+    <div className="px-5 lg:px-28 bg-[#edeaea] relative ">
       <div className="absolute md:-top-10 -top-18 left-0 right-0 px-7 lg:px-28">
         <form
           action=""

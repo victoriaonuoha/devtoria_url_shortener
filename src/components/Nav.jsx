@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Nav() {
   const [navMenu, setnavMenu] = useState(false);
   return (
-    <div className="py-8 px-7 lg:px-28">
+    <div className="pb-8 pt-5 md:pt-8 px-5 lg:px-28">
       <div className="flex justify-between md:justify-start md:gap-20 items-center">
         <h1 className="font-bold lg:text-3xl text-2xl">Shortly</h1>
         <div className="md:hidden">
