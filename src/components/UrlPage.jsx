@@ -5,7 +5,7 @@ export default function UrlPage() {
 
   return (
     <div className="px-5 lg:px-28 bg-[#edeaea] relative ">
-      <div className="absolute md:-top-10 -top-18 left-0 right-0 px-7 lg:px-28">
+      <div className="absolute md:-top-10 -top-18 left-0 right-0 px-5 lg:px-28">
         <form
           action=""
           className=" flex flex-col md:flex-row space-y-5 md:space-y-0 p-5 rounded-xl img-form md:w-full md:gap-5"
