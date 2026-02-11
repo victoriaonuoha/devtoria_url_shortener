@@ -4,16 +4,23 @@ export default function UrlPage() {
   const [longUrl, setLongUrl] = useState("");
   const [error, setError] = useState("");
   const [shortUrl, setShortUrl] = useState("");
-  const [history, setHistory] = useState([]);
+
   const [loading, setLoading] = useState(false);
+  const [copiedIndex, setCopiedIndex] = useState(null);
+
+  const [shorten, setShorten] = useState(false);
+  const [history, setHistory] = useState(() => {
+    const saved = localStorage.getItem("urlHistory");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   // UseEffects
 
   // Load history from localStorage
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("urlHistory"));
-    if (saved) setHistory(saved);
-  }, []);
+  // useEffect(() => {
+  //   const saved = JSON.parse(localStorage.getItem("urlHistory"));
+  //   if (saved) setHistory(saved);
+  // }, []);
 
   // Save history to localStorage
   useEffect(() => {
@@ -54,6 +61,7 @@ export default function UrlPage() {
 
     setError("");
     setLoading(true);
+    setShorten(true);
 
     // Actually fetching the shirtened url from api
     try {
@@ -83,16 +91,16 @@ export default function UrlPage() {
       setError("Network error");
     } finally {
       setLoading(false);
+      setShorten(false);
     }
   };
-
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text, index) => {
     navigator.clipboard.writeText(text);
-    alert("Short URL copied to clipboard!");
+    setCopiedIndex(index);
   };
 
   return (
-    <div className="px-5 lg:px-28 bg-[#edeaea] relative ">
+    <div className="px-5 lg:px-28 bg-[#edeaea] pb-28 relative ">
       <div className="absolute md:-top-10  -top-18 left-0 right-0 px-5 lg:px-28">
         <form
           action=""
@@ -119,7 +127,7 @@ export default function UrlPage() {
             onClick={handlesubmit}
             className="w-full py-3 h-12 md:py-0 text-white font-bold  bg-[#2acfcf] rounded-md md:w-[20%] hover:bg-[#a6f3f3] transition duration-300 cursor-pointer"
           >
-            Shorten It!
+            {shorten ? "Shortening" : "Shorten It"}
           </button>
         </form>
       </div>
@@ -128,25 +136,36 @@ export default function UrlPage() {
         {history.map((item, index) => (
           <div
             key={index}
-            className="border p-2 rounded mb-2 flex flex-col gap-1"
+            className="border-none flex flex-col md:justify-between bg-white  px-4 py-2 rounded md:items-center mb-2 md:flex-row  gap-1"
           >
-            <p className="text-sm break-all">
-              <b>Long:</b> {item.long}
-            </p>
+            <h1 className=" break-all">
+              <b>{item.long}</b>
+            </h1>
+            <hr className="md:hidden" />
+            <div className="flex flex-col md:flex-row md:gap-6 space-y-2 md:space-y-0 md:items-center ">
+              <h1 className="text-sm break-all text-blue-600">
+                <a
+                  className="text-[#2acfcf] font-semibold"
+                  href={item.short}
+                  target="_blank"
+                >
+                  {item.short}
+                </a>
+              </h1>
 
-            <p className="text-sm break-all text-blue-600">
-              <b>Short:</b>{" "}
-              <a href={item.short} target="_blank">
-                {item.short}
-              </a>
-            </p>
+              <button
+                onClick={() => copyToClipboard(item.short, index)}
+                className={`px-5 py-2 font-semibold cursor-pointer rounded text-sm md:w-fit w-full text-white 
+  ${
+    copiedIndex === index
+      ? "bg-[#2f2d32] hover:bg-[#443c4d]"
+      : "bg-[#2acfcf] hover:bg-[#a6f3f3]"
+  }`}
+              >
+                {copiedIndex === index ? "Copied!" : "Copy"}
 
-            <button
-              onClick={() => copyToClipboard(item.short)}
-              className="bg-gray-200 px-2 py-1 rounded text-sm w-fit"
-            >
-              Copy
-            </button>
+              </button>
+            </div>
           </div>
         ))}
       </div>
